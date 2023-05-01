@@ -1,9 +1,7 @@
-package com.library.pages;
+package com.sauce.pages;
 
-import com.library.utility.ConfigurationReader;
-import com.library.utility.Driver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import com.sauce.utility.ConfigurationReader;
+import com.sauce.utility.Driver;
 import org.openqa.selenium.support.PageFactory;
 
 
@@ -13,14 +11,7 @@ public class LoginPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "inputEmail")
-    public WebElement emailBox;
 
-    @FindBy(id = "inputPassword")
-    public WebElement passwordBox;
-
-    @FindBy(tagName = "button")
-    public WebElement loginButton;
 
 
 
@@ -29,19 +20,23 @@ public class LoginPage {
         String username= ConfigurationReader.getProperty(userType+"_username");
         String password=ConfigurationReader.getProperty(userType+"_password");
 
-
+        /*
         emailBox.sendKeys(username);
         passwordBox.sendKeys(password);
         loginButton.click();
+
+         */
 
     }
 
     public void login(String email,String password){
 
-
+        /*
         emailBox.sendKeys(email);
         passwordBox.sendKeys(password);
         loginButton.click();
+
+         */
 
     }
 

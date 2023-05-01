@@ -1,4 +1,4 @@
-package com.library.runner;
+package com.sauce.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -14,9 +14,9 @@ import org.junit.runner.RunWith;
                 "json:target/cucumber.json"
         },
         features = "src/test/resources/features" ,
-        glue = "com/library/steps",
+        glue = "com/sauce/steps",
         dryRun = false,
-        tags = "@us03"
+        tags = "@us01"
 )
 public class CukesRunner {
 

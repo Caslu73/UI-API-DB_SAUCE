@@ -1,11 +1,12 @@
-package com.library.steps;
+package com.sauce.steps;
 
 
 
 
-import com.library.utility.ConfigurationReader;
-import com.library.utility.DB_Util;
-import com.library.utility.Driver;
+import com.sauce.utility.BrowserUtil;
+import com.sauce.utility.ConfigurationReader;
+import com.sauce.utility.DB_Util;
+import com.sauce.utility.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -20,7 +21,7 @@ public class Hooks {
     public void setUp(){
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Driver.getDriver().manage().window().maximize();
-        Driver.getDriver().get(ConfigurationReader.getProperty("library_url"));
+        Driver.getDriver().get(ConfigurationReader.getProperty("qaEnv"));
 
     }
 
@@ -30,6 +31,8 @@ public class Hooks {
             final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
+
+        BrowserUtil.waitFor(3);
 
         Driver.closeDriver();
 
